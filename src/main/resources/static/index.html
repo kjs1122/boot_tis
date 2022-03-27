@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/common.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="warp">
+
+        <div class="main_inner">
+            <div class="page">
+                <div class="main_img_box">
+                    <button class="prevBtn">&lt;</button>
+                    <button class="nextBtn">&gt;</button>
+                    <ul class="slider">
+                        <li>
+                            <a href="#" class="main_img_tag"><img src="/images/main/main1.jpg" alt="main_jpg"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="main_img_tag"><img src="/images/main/main2.jpg" alt="main_jpg"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="main_img_tag"><img src="/images/main/main3.jpg" alt="main_jpg"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main_tit_box">
+                <h1 class="main_tit">이건 어떠세요?</h1>
+            </div>
+
+            <div class="main_content_box">
+                <ul class="main_content_list">
+                    <c:forEach items="${goodsList}" var="goods">
+                    <li>
+                        <a href="/shop/goods/goods_detail?goodsNo=${goods.goodsNo}">
+                            <div class="img_box">
+                                <img src="/resources/images/shop/goods/${goods.goodsImage}" alt="${goods.goodsImage}">
+                                <div class="itemList_cartBtn_div">
+                                    <a href='${goods.goodsNo}' class="itemList_cartBtn"></a>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="product">
+                            <a href="/shop/goods/goods_detail?goodsNo=${goods.goodsNo}">
+                                <span class="itemList_info index_item_name">${goods.goodsName}</span>
+                            </a>
+                            <span class="itemList_info item_price"> <fmt:formatNumber value="${goods.goodsPrice}" pattern="###,###,###" />
+									</span><span class="itemList_info item_desc">${goods.goodsContent}</span>
+                        </div>
+
+                    </li>
+
+                </c:forEach>
+            </ul>
+        </div>
+
+        <div class="event_inner">
+            <ul class="event_list">
+                <li>
+                    <a href="#">
+                        <div class="imgBox"><img src="/resources/images/event/event01.jpg" alt="event01">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main_tit_box">
+            <h1 class="main_tit">이건 안사면 후회!</h1>
+        </div>
+        <div class="main_content_box">
+            <ul class="main_content_list">
+                <c:forEach items="${goodsList}" var="goods">
+
+                    <li>
+                        <a href="/shop/goods/goods_detail?goodsNo=${goods.goodsNo}">
+                            <div class="img_box">
+                                <img src="/resources/images/shop/goods/${goods.goodsImage}"
+                                     alt="${goods.goodsImage}">
+                                <div class="itemList_cartBtn_div">
+                                    <a href='${goods.goodsNo}' class="itemList_cartBtn"></a>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="product">
+                            <a href="/shop/goods/goods_detail?goodsNo=${goods.goodsNo}">
+                                <span class="itemList_info index_item_name">${goods.goodsName}</span>
+                            </a>
+                            <span class="itemList_info item_price"> <fmt:formatNumber value="${goods.goodsPrice}" pattern="###,###,###" />
+									</span> <span class="itemList_info item_desc">${goods.goodsContent}</span>
+                        </div>
+                    </li>
+
+                </c:forEach>
+
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
